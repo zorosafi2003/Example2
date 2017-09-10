@@ -1,0 +1,53 @@
+
+
+
+    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+        <div class="row">
+            <div class="col-sm-2">
+                <a class="btn btn-block btn-primary " routerLink="/customer/add">New</a>
+            </div>
+            <div class="col-sm-10">
+
+                <div id="example1_filter" class="dataTables_filter" style="float:right">
+                    <input class="form-control " type="text" placeholder="Search by Name" [(ngModel)]="textSearch" (keyup)="Search()">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                    <thead>
+                        <tr role="row">
+
+                            <th  tabindex="0" aria-controls="example1" rowspan="1" colspan="1" *ngFor="let head of Headers" style="text-align:center;">{{head}}</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="odd" style="text-align:center;" *ngFor="let Detail of Details">
+                            <td>{{Detail.Id}}</td>
+                            <td>{{Detail.Name}}</td>
+                            <td>{{Detail.Address}}</td>
+                            <td>{{Detail.Phone}}</td>
+                            <td><a routerLink="/customer/edit/{{Detail.Guid}}"><i class="fa fa-fw  fa-pencil"></i></a></td>
+                            <td><a href="javascript:void(0)"><i (click)="DeleteCustomer(Detail.Guid)" class="fa fa-fw fa-close"></i></a></td>
+
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                       
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing {{page * 10  - 9}} to {{page * 10}} of {{bigTotalItems}} entries</div>
+            </div>
+            <div class="col-sm-7">
+             <ngb-pagination [collectionSize]="bigTotalItems" [(page)]="page" aria-label="Default pagination" (pageChange)="Search()"></ngb-pagination>
+            </div>
+        </div>
+    </div>

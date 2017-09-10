@@ -1,0 +1,23 @@
+<div class="row">
+
+    <div class="  col-xs-12 form-group">
+        <label>Name :</label>
+        <input class="form-control" [(ngModel)]="Obj.Name">
+    </div>
+
+
+    <div class=" col-xs-12 form-group">
+        <label>Address</label>
+        <input class="form-control"  [(ngModel)]="Obj.Address">
+    </div>
+
+    <div class=" col-xs-12 form-group">
+        <label>Phone</label>
+        <input class="form-control"  [(ngModel)]="Obj.Phone">
+    </div>
+</div>
+
+<div class="box-footer" align="center">
+    <a class="btn  btn-success btn-flat " (click)="Save()" style="width:100px">Save</a>
+    <a class="btn btn-danger btn-flat " style="width:100px" routerLink="/customer">Cancel</a>
+</div>
